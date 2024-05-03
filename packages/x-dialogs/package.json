@@ -1,6 +1,6 @@
 {
     "name": "mui-x-dialogs",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "private": false,
     "author": "Douglas Zaltron <douglaszaltron@gmail.com>",
     "description": "Dialogs manager based on Material UI components",
