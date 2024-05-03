@@ -1,0 +1,42 @@
+{
+    "name": "mui-extends",
+    "private": true,
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/douglaszaltron/mui-extends.git"
+    },
+    "author": "Douglas Zaltron <douglaszaltron@gmail.com>",
+    "scripts": {
+        "dev": "turbo run start --filter=playground",
+        "build": "turbo run build",
+        "clean": "turbo run clean",
+        "lint": "turbo run lint",
+        "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+        "version": "changeset version",
+        "release": "changeset publish",
+        "version:dev": "changeset version --snapshot dev",
+        "release:dev": "changeset publish --tag dev"
+    },
+    "dependencies": {
+        "react": "^18.3.1",
+        "react-dom": "^18.3.1"
+    },
+    "devDependencies": {
+        "@changesets/changelog-github": "^0.5.0",
+        "@changesets/cli": "^2.27.1",
+        "@types/node": "^20.12.8",
+        "@types/react": "^18.3.1",
+        "@types/react-dom": "^18.3.0",
+        "@typescript-eslint/eslint-plugin": "^7.8.0",
+        "@typescript-eslint/parser": "^7.8.0",
+        "eslint": "^8.57.0",
+        "eslint-config-prettier": "^9.1.0",
+        "eslint-config-react-app": "^7.0.1",
+        "eslint-plugin-prettier": "^5.1.3",
+        "prettier": "^3.2.5",
+        "tsup": "^8.0.2",
+        "turbo": "^1.13.3",
+        "typescript": "^5.4.5"
+    },
+    "packageManager": "pnpm@9.0.6"
+}

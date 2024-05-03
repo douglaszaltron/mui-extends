@@ -1,0 +1,45 @@
+{
+    "name": "mui-x-dialogs",
+    "version": "1.0.0",
+    "private": false,
+    "author": "Douglas Zaltron <douglaszaltron@gmail.com>",
+    "description": "Dialogs manager based on Material UI components",
+    "license": "MIT",
+    "keywords": [
+        "components",
+        "confirm",
+        "dialog",
+        "material design",
+        "material-ui",
+        "modal",
+        "mui"
+    ],
+    "sideEffects": false,
+    "main": "./src/index.ts",
+    "files": [
+        "dist/**"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/douglaszaltron/mui-extends.git",
+        "directory": "packages/x-dialogs"
+    },
+    "scripts": {
+        "build": "tsup",
+        "lint": "eslint src --fix",
+        "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
+    },
+    "dependencies": {
+        "@mui/material": "^5.15.16"
+    },
+    "peerDependencies": {
+        "react": "^18.0.0",
+        "react-dom": "^18.0.0"
+    },
+    "publishConfig": {
+        "main": "dist/index.js",
+        "types": "dist/index.d.ts",
+        "access": "public",
+        "provenance": true
+    }
+}

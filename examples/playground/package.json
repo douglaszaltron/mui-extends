@@ -1,0 +1,19 @@
+{
+  "name": "playground",
+  "private": true,
+  "version": "0.2.2",
+  "scripts": {
+    "start": "vite"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.5",
+    "@mui/icons-material": "^5.15.16",
+    "@mui/material": "^5.15.16",
+    "mui-x-dialogs": "workspace:*"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react-swc": "^3.6.0",
+    "vite": "^5.2.11"
+  }
+}
