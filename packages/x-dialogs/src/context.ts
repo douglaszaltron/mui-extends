@@ -1,9 +1,10 @@
 import { DialogProps } from '@mui/material/Dialog';
+import { DialogTitleProps } from '@mui/material/DialogTitle';
 import React, { ReactNode } from 'react';
 import { ConfirmDialogProps } from './ConfirmDialog';
 import { ContentDialogProps } from './ContentDialog';
 
-export type DialogSettings = Partial<Omit<DialogProps, 'open'>> & { dialogId?: string };
+export type DialogSettings = Partial<Omit<DialogProps, 'open'>> & { dialogId?: string; titleProps?: DialogTitleProps };
 
 export type ActionLabels = Partial<Record<'confirm' | 'cancel' | 'close', ReactNode>>;
 

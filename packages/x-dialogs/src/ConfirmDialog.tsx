@@ -63,7 +63,7 @@ export function ConfirmDialog({
                     {cancelProps?.children || cancelLabel}
                 </Button>
 
-                <Button variant="contained" {...confirmProps} onClick={handleConfirm}>
+                <Button variant="contained" autoFocus {...confirmProps} onClick={handleConfirm}>
                     {confirmProps?.children || confirmLabel}
                 </Button>
             </DialogActions>
