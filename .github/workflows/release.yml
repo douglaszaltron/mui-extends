@@ -1,47 +1,29 @@
-name: Release
+name: release
 
 on:
-    push:
-        branches:
-            - main
-
-concurrency:
-    group: ${{ github.workflow }}-${{ github.ref }}
+  push:
+    branches:
+      - main
 
 jobs:
-    release:
-        name: Release
-        runs-on: ubuntu-latest
-        steps:
-            - name: Checkout branch
-              uses: actions/checkout@v4
-              with:
-                  fetch-depth: 0
-
-            - name: Install
-              uses: ./.github/composite-actions/install
-
-            - name: Build
-              run: pnpm build
-
-            - name: Create release Pull Request or publish to NPM
-              id: changesets
-              uses: changesets/action@v1
-              with:
-                  publish: pnpm release
-                  commit: 'ci(changesets): version packages'
-                  setupGitUser: false
-              env:
-                  NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-                  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-            - name: Create @dev release
-              if: steps.changesets.outputs.published != 'true'
-              run: |
-                  git checkout main
-                  pnpm version:dev
-                  pnpm release:dev
-              env:
-                  NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  changelog:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v3
+        with:
+          version: 8
+      - run: pnpm i
+      - run: pnpm run build
+      - uses: changesets/action@v1
+        with:
+          version: pnpm run version
+          publish: pnpm run release
+          commit: "[ci] release"
+          title: "[ci] release"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
