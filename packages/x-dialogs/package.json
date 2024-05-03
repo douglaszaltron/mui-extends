@@ -39,7 +39,6 @@
     "publishConfig": {
         "main": "dist/index.js",
         "types": "dist/index.d.ts",
-        "access": "public",
-        "provenance": true
+        "access": "public"
     }
 }
